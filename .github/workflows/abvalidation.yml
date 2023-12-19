@@ -3,7 +3,7 @@ name: Story Number Validation
 on:
   pull_request:
     types: [opened, edited, reopened]
-    branches: [main]
+    branches: [master]
 
   workflow_dispatch:
 
