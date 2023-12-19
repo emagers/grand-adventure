@@ -1,0 +1,19 @@
+name: Story Number Validation
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+    branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  story-number-validation:
+    name: Story Number Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: ab-story-validation
+        uses: emagers/ab-story-validation-action@v2.0.1
+        if: contains(github.actor, '[bot]') == false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
